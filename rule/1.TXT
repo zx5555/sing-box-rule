@@ -1,0 +1,464 @@
+{
+    "log": {
+        "disabled": false,
+        "level": "warn",
+        "output": "../run/sing-box.log",
+        "timestamp": true
+    },
+    "dns": {
+        "servers": [
+            {
+                "type": "udp",
+                "tag": "dns-default",
+                "server": "223.5.5.5",
+                "server_port": 53
+            },
+            {
+                "type": "quic",
+                "tag": "dns-ali",
+                "server": "dns.alidns.com",
+                "domain_resolver": "dns-default"
+            },
+            {
+                "type": "h3",
+                "tag": "dns-cloudflare",
+                "server": "cloudflare-dns.com",
+                "domain_resolver": "dns-default"
+            },
+            {
+                "type": "fakeip",
+                "tag": "dns-fakeip",
+                "inet4_range": "198.18.0.0/16",
+                "inet6_range": "fc00::/18"
+            }
+        ],
+        "rules": [
+            {
+                "clash_mode": "direct",
+                "server": "dns-ali"
+            },
+            {
+                "clash_mode": "global",
+                "server": "dns-cloudflare"
+            },
+            {
+                "rule_set": "fakeip-filter",
+                "server": "dns-cloudflare"
+            },
+            {
+                "rule_set": "cn_domain",
+                "server": "dns-ali"
+            },
+            {
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns-fakeip"
+            }
+        ],
+        "final": "dns-cloudflare",
+        "reverse_mapping": true
+    },
+    "inbounds": [
+    {
+        "endpoint_independent_nat": true,
+        "address": [
+            "172.18.0.1/30",
+            "fdfe:dcba:9876::1/126"
+        ],
+        "mtu": 9000,
+        "stack": "mixed",
+        "auto_route": true,
+        "strict_route": true,
+        "tag": "tun-in",
+        "type": "tun",
+        "platform": {
+            "http_proxy": {
+                "enabled": true,
+                "server": "127.0.0.1",
+                "server_port": 7890
+            }
+        }
+    },
+        {
+            "type": "tproxy",
+            "tag": "tproxy-in",
+            "listen": "::",
+            "listen_port": 9898
+        },
+        {
+            "type": "mixed",
+            "listen": "::",
+            "listen_port": 7890
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "selector",
+            "tag": "🤖 AI",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📲 Telegram",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📢 GoogleFCM",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🌌 Google",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "Ⓜ️ Microsoft",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🇨🇳 CN",
+            "outbounds": [
+                "direct",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US"
+            ]
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "selector",
+            "tag": "🐟 Final",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "📌 Main",
+            "outbounds": [
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "🇸🇬 SG",
+                "自建",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "🚀 Manual",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🇭🇰 HK",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🇹🇼 TW",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🇯🇵 JP",
+            "outbounds": []
+        },
+                {
+            "type": "selector",
+            "tag": "自建",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🇸🇬 SG",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🇺🇸 US",
+            "outbounds": []
+        },
+        {
+            "type": "selector",
+            "tag": "🎬 EMBY",
+            "outbounds": [
+                "📌 Main",
+                "🚀 Manual",
+                "🇭🇰 HK",
+                "🇹🇼 TW",
+                "🇯🇵 JP",
+                "自建",
+                "🇸🇬 SG",
+                "🇺🇸 US",
+                "🇨🇳 CN"
+            ]
+        }     
+    ],
+    "route": {
+        "rules": [
+            {
+                "action": "sniff"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 53
+                    },
+                    {
+                        "protocol": "dns"
+                    }
+                ],
+                "action": "hijack-dns"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "🇨🇳 CN"
+            },
+            {
+                "rule_set": [
+                    "Emby"
+                ],
+                "outbound": "🎬 EMBY"
+            },
+            {
+                "rule_set": [
+                    "Ai"
+                ],
+                "outbound": "🤖 AI"
+            },
+            {
+                "rule_set": [
+                    "Telegram-ip",
+                    "Telegram-domain"
+                ],
+                "outbound": "📲 Telegram"
+            },
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "domain_suffix": [
+                            "mtalk.google.com",
+                            "alt1-mtalk.google.com",
+                            "alt2-mtalk.google.com",
+                            "alt3-mtalk.google.com",
+                            "alt4-mtalk.google.com",
+                            "alt5-mtalk.google.com",
+                            "alt6-mtalk.google.com",
+                            "alt7-mtalk.google.com",
+                            "alt8-mtalk.google.com"
+                        ]
+                    },
+                    {
+                        "port": 443
+                    }
+                ],
+                "outbound": "📢 GoogleFCM"
+            },
+            {
+                "port": 5228,
+                "outbound": "📢 GoogleFCM"
+            },
+            {
+                "rule_set": [
+                    "google_ip",
+                    "google_domain"
+                ],
+                "outbound": "🌌 Google"
+            },
+            {
+                "rule_set": [
+                    "microsoft_domain"
+                ],
+                "outbound": "Ⓜ️ Microsoft"
+            },
+            {
+                "rule_set": [
+                    "awavenue"
+                ],
+                "clash_mode": "Rule",
+                "action": "reject"
+            },
+            {
+                "rule_set": [
+                    "cn_ip",
+                    "cn_domain"
+                ],
+                "outbound": "🇨🇳 CN"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "🇨🇳 CN"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "📌 Main"
+            }
+        ],
+        "rule_set": [
+            {
+                "tag": "Emby",
+                "type": "remote",
+                "format": "source",
+                "url": "https://gist.githubusercontent.com/misak10/975a9f9b0ff00fe9c4b3ed6bdb976385/raw/emby.json"
+            },
+            {
+                "tag": "Ai",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/ai.srs"
+            },
+            {
+                "tag": "fakeip-filter",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs"
+            },
+            {
+                "tag": "Telegram-ip",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/telegram.srs"
+            },
+            {
+                "tag": "Telegram-domain",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/telegram.srs"
+            },
+            {
+                "tag": "google_ip",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/google.srs"
+            },
+            {
+                "tag": "google_domain",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/google.srs"
+            },
+            {
+                "tag": "microsoft_domain",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/microsoft.srs"
+            },
+            {
+                "tag": "cn_ip",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/cn.srs"
+            },
+            {
+                "tag": "cn_domain",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/cn.srs"
+            },
+            {
+                "tag": "awavenue",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs"
+            }
+        ],
+        "default_domain_resolver": "dns-cloudflare",
+        "auto_detect_interface": true,
+        "final": "🐟 Final"
+    },
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "store_fakeip": true,
+            "store_rdrc": true,
+            "rdrc_timeout": "1d"
+        },
+        "clash_api": {
+            "external_controller": "0.0.0.0:9999",
+            "secret": "",
+            "access_control_allow_origin": [
+        "*"
+        ],
+            "access_control_allow_private_network": true,            
+            "external_ui": "dashboard",
+            "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+        }
+    }
+}
