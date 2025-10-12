@@ -25,6 +25,12 @@
         "lofter.httpdns.c.163.com",
         "music.httpdns.c.163.com"
       ],
+      "ip_cidr": [
+        "113.105.95.37",
+        "113.108.16.39",
+        "113.108.89.210"
+      
+      ],
       "domain_suffix": [
         ".dns.jd.com",
         ".dns.weibo.cn",
