@@ -1,11 +1,19 @@
 {
-  "version": 4,
   "rules": [
     {
+      "domain_keyword": [
+        "freefire"
+      ]
+    },
+    {
+      "process_name": [
+        "com.mb.android"
+      ],
       "package_name": [
         "com.dts.freefiremax",
         "com.dts.freefireth"      
       ]
     }
-  ]
+  ],
+  "version": 2
 }
