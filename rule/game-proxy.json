@@ -1,17 +1,6 @@
 {
   "rules": [
     {
-      "domain_keyword": [
-        "freefire"
-      ],
-      "domain_suffix": ["ios.crashsight.wetest.net","ca.iadsdk.apple.com","sgameglobal.com", "honorofkings.com", "vasdgame.com","757117d71aacf773.sgameglobal.com.acc.edgeonedy1.com","login.microsoftonline.com","down.gamelet.games","launches.appsflyersdk.com","app-analytics-services-att.com","sg.voice.gcloudcs.com","qoshw.gcloudsdk.com","camp.honorofkings.com","yt3.ggpht.com","gromelink-link-sg.sgameglobal.com.cdn.cloudflare.net","kelee.one", "anticheatexpert.com","singaporepaya.com","sgameglobal.com.acc.edgeonedy1.com","oalstv-inapps.appsflyersdk.com","oalstv-skadsdkless.appsflyersdk.com","hok-dr.intlgame.com","hokglobalgcloud.iegcom.com","hok-lbs.intlgame.com","hok-gcloudctrl.iegcom.com","hok.intlgame.com"
-      ],
-      "process_name": [
-        "com.mb.android"
-      ],
-      "process_path": [
-        "com.levelinfinite.sgameGlobal"
-      ],
       "package_name": [
         "com.dts.freefiremax",
         "com.levelinfinite.sgameGlobal",
