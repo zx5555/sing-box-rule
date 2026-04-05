@@ -13,6 +13,8 @@
         "mtalk-dev.google.com",
         "mtalk-staging.google.com",
         "mtalk.google.com",
+        "dl.google.com",
+        "dl.l.google.com",
         "mtalk4.google.com"
       ]
     }
