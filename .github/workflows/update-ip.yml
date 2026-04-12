@@ -13,10 +13,23 @@ jobs:
       - name: Checkout 仓库
         uses: actions/checkout@v4
 
-      - name: 获取 IP 并写入文件
-        run: |
-          curl -s https://ip.v2too.top/api/nodes \
-          | jq -r '.[].ip' > ip.txt
+- name: Update IP
+  run: |
+    DATA=$(curl -s -A "Mozilla/5.0" --max-time 10 https://ip.v2too.top/api/nodes)
+
+    if echo "$DATA" | jq -e 'type=="array"' > /dev/null 2>&1; then
+      IPS=$(echo "$DATA" | jq -r '.[].ip' | sort -u)
+
+      if [ -n "$IPS" ]; then
+        echo "$IPS" > ip.txt
+        echo "更新成功"
+      else
+        echo "IP为空，跳过"
+      fi
+    else
+      echo "接口返回异常："
+      echo "$DATA"
+    fi
 
       - name: 提交变更
         run: |
