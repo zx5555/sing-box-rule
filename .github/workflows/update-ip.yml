@@ -1,9 +1,9 @@
-name: Update  IP
+name: Update IP
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # 每30分钟更新一次
-  workflow_dispatch:        # 支持手动触发
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
 
 jobs:
   update:
@@ -13,23 +13,26 @@ jobs:
       - name: Checkout 仓库
         uses: actions/checkout@v4
 
-- name: Update IP
-  run: |
-    DATA=$(curl -s -A "Mozilla/5.0" --max-time 10 https://ip.v2too.top/api/nodes)
+      - name: Update IP
+        run: |
+          DATA=$(curl -s -A "Mozilla/5.0" --max-time 10 https://ip.v2too.top/api/nodes)
 
-    if echo "$DATA" | jq -e 'type=="array"' > /dev/null 2>&1; then
-      IPS=$(echo "$DATA" | jq -r '.[].ip' | sort -u)
+          echo "接口返回："
+          echo "$DATA"
 
-      if [ -n "$IPS" ]; then
-        echo "$IPS" > ip.txt
-        echo "更新成功"
-      else
-        echo "IP为空，跳过"
-      fi
-    else
-      echo "接口返回异常："
-      echo "$DATA"
-    fi
+          if echo "$DATA" | jq -e 'type=="array"' > /dev/null 2>&1; then
+            IPS=$(echo "$DATA" | jq -r '.[].ip' | sort -u)
+
+            if [ -n "$IPS" ]; then
+              echo "$IPS" > ip.txt
+              echo "更新成功"
+            else
+              echo "IP为空，跳过"
+            fi
+          else
+            echo "接口返回异常"
+            exit 0
+          fi
 
       - name: 提交变更
         run: |
@@ -37,5 +40,6 @@ jobs:
           git config --global user.email "actions@github.com"
 
           git add ip.txt
-          git commit -m "自动更新  IP" || echo "无变化"
+          git diff --quiet && echo "无变化" && exit 0
+          git commit -m "自动更新 IP"
           git push
