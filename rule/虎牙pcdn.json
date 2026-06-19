@@ -30,7 +30,7 @@
       "type": "logical",
       "mode": "and",
       "rules": [{"domain": "datasink.1258good.cn:443"},{"ip_cidr": [
- "115.175.21.19"]},{"port": [ 7000,56632 ]}
+ "115.175.21.19"]},{"port": [ 7000,56632 ]}]
     },
     {
       "type": "logical",
