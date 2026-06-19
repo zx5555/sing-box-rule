@@ -17,6 +17,7 @@
           "mcdn.bilivideo.cn",
           "cdnws.api.huya.com",
           "diy-front.cdn.huya.com",
+"lts-access.cn-east-3.myhuaweicloud.com",
           "tracker.biliapi.net"
         ],
      "domain_regex": [
