@@ -9,9 +9,7 @@
         ".pp.io"
       ],
     "ip_cidr": [
-      "203.107.1.0/24",
-      "115.175.21.19:7000",
-      "115.175.21.19:56632"
+      "203.107.1.0/24"
      ]
     },
     {
@@ -19,7 +17,6 @@
           "mcdn.bilivideo.cn",
           "cdnws.api.huya.com",
           "diy-front.cdn.huya.com",
-          "datasink.1258good.cn:443",
           "tracker.biliapi.net"
         ],
      "domain_regex": [
@@ -28,6 +25,12 @@
           "(.*)\\.v(.*)d\\.szbdyd\\.com$",
           "(.*)-live-tracker-(.*)\\.chat\\.bilibili\\.com$"
         ]
+    },
+{
+      "type": "logical",
+      "mode": "and",
+      "rules": [{"domain": "datasink.1258good.cn:443"},{"ip_cidr": [
+ "115.175.21.19"]},{"port": [ 7000,56632 ]}
     },
     {
       "type": "logical",
