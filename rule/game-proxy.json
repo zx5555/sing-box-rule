@@ -1,18 +1,4 @@
 {
-  "rules": [
-    {
-      "package_name": [
-        "com.dts.freefiremax",
-        "com.hottagames.nte",
-        "com.levelinfinite.sgameGlobal",
-        "com.abyss.igp",
-        "com.dts.freefireth"      
-      ]
-    }
-  ],
-  "version": 3
-}
-{
   "version": 2,
   "rules": [
     {
