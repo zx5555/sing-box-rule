@@ -5,7 +5,12 @@
       "domain_suffix": [
         ".xn--ngstr-lra8j.com",
         ".googleapis.cn",      
-        ".xn--ngstr-cn-8za9o.com",        
+        ".xn--ngstr-cn-8za9o.com",  
+        ".googlevideo.com",
+        ".googleusercontent.com",
+        ".gstaic.com",
+        ".googleapis.com",
+        ".google.cn",  
         ".dev"
       ]    
     }
