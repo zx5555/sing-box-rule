@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "package_name": [
+        "com.openai.chatgpt",
+        "com.anthropic.claude",
+        "ai.x.grok",
+        "com.microsoft.copilot",
+        "com.google.android.apps.bard"
+      ]
+    }
+  ]
+}
