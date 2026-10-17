@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "package_name": [
+        "com.binance.dev",
+        "com.okinc.okex.gp",
+        "com.bybit.app",
+        "com.gateio.gateio",
+        "pro.huobi",
+        "com.coinbase.android",
+        "io.metamask",
+        "com.tokenpocket",
+        "im.token.app",
+        "com.wallet.crypto.trustapp"
+      ]
+    }
+  ]
+}
