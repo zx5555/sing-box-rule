@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "package_name": [
+        "com.tencent.mm",
+        "com.tencent.mobileqq",
+        "com.eg.android.AlipayGphone",
+        "com.unionpay",
+        "com.jingdong.app.mall",
+        "com.taobao.taobao",
+        "com.sankuai.meituan",
+        "com.dianping.v1",
+        "com.autonavi.minimap",
+        "com.baidu.BaiduMap",
+        "com.ss.android.ugc.aweme",
+        "com.smile.gifmaker",
+        "com.xunmeng.pinduoduo",
+        "com.zhihu.android",
+        "com.sina.weibo",
+        "com.xingin.xhs",
+        "com.bilibili.app.in",
+        "tv.danmaku.bili",
+        "com.netease.cloudmusic",
+        "com.tencent.qqmusic",
+        "com.icbc",
+        "com.chinamworld.main",
+        "com.boc.bocsoft",
+        "com.abchina.mobile.mbank",
+        "com.cmbchina.ccd.pluto.cmbActivity",
+        "com.bankofshanghai.mbank",
+        "com.pingan.paces.ccms",
+        "com.citiccard.mobilebank",
+        "com.cib.cibmb"
+      ]
+    }
+  ]
+}
