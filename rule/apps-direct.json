@@ -3,7 +3,6 @@
   "rules": [
     {
       "package_name": [
-        "com.tencent.mm",
         "com.tencent.mobileqq",
         "com.eg.android.AlipayGphone",
         "com.unionpay",
