@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "package_name": [
+        "org.telegram.messenger",
+        "org.telegram.messenger.web",
+        "org.telegram.plus",
+        "org.thunderdog.challegram",
+        "nekox.messenger",
+        "org.telegram.Bifrvdg",
+        "com.twitter.android",
+        "com.twitter.android.lite",
+        "com.instagram.android",
+        "com.facebook.katana",
+        "com.facebook.orca",
+        "com.whatsapp",
+        "com.discord",
+        "com.google.android.youtube",
+        "com.google.android.apps.youtube.music",
+        "com.netflix.mediaclient",
+        "com.spotify.music",
+        "com.disney.disneyplus",
+        "com.valvesoftware.android.steam.community",
+        "com.openai.chatgpt",
+        "com.anthropic.claude",
+        "ai.x.grok",
+        "com.microsoft.copilot",
+        "com.google.android.apps.bard",
+        "com.github.android"
+      ]
+    }
+  ]
+}
